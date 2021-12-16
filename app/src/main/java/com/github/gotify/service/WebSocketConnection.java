@@ -53,7 +53,7 @@ class WebSocketConnection {
         OkHttpClient.Builder builder =
                 new OkHttpClient.Builder()
                         .readTimeout(0, TimeUnit.MILLISECONDS)
-                        .pingInterval(1, TimeUnit.MINUTES)
+                        .pingInterval(30, TimeUnit.SECONDS)
                         .connectTimeout(10, TimeUnit.SECONDS);
         CertUtils.applySslSettings(builder, settings);
 
@@ -220,10 +220,10 @@ class WebSocketConnection {
                             Log.i("WebSocket(" + id + "): Network not connected");
                         }
 
-                        int minutes = Math.min(errorCount * 2 - 1, 20);
+                        int seconds = Math.min(errorCount * 2 - 1, 20);
 
-                        onNetworkFailure.execute(minutes);
-                        scheduleReconnect(TimeUnit.MINUTES.toSeconds(minutes));
+                        onNetworkFailure.execute(seconds);
+                        scheduleReconnect(seconds);
                     });
 
             super.onFailure(webSocket, t, response);
