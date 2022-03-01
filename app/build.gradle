@@ -71,7 +71,7 @@ dependencies {
     implementation 'io.noties.markwon:image:4.6.2'
     implementation 'io.noties.markwon:ext-tables:4.6.2'
     implementation "androidx.core:core-ktx:1.7.0"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     implementation 'io.noties.markwon:ext-strikethrough:4.6.2'
 }
 
