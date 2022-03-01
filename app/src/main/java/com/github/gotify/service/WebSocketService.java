@@ -266,7 +266,12 @@ public class WebSocketService extends Service {
     private void foreground(String message) {
         Intent notificationIntent = new Intent(this, MessagesActivity.class);
 
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
+        PendingIntent pendingIntent = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
+            pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_MUTABLE);
+        } else {
+            pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
+        }
 
         Notification notification =
                 new NotificationCompat.Builder(this, NotificationSupport.Channel.FOREGROUND)
