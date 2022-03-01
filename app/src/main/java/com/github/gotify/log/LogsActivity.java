@@ -68,7 +68,7 @@ public class LogsActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(Void... voids) {
-            return com.github.gotify.log.Log.get();
+            return null;
         }
 
         @Override

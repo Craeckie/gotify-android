@@ -32,7 +32,6 @@ public class InitializationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.init(this);
         String theme =
                 PreferenceManager.getDefaultSharedPreferences(this)
                         .getString(
